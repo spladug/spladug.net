@@ -1,0 +1,198 @@
+$body-font-size: 22px;
+$paragraph-spacing: 0.6em;
+$body-width: 30em;
+
+@font-face{
+  font-family: 'Source Serif Pro';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 200 900;
+
+  src: url('./fonts/SourceSerifVariable-Roman.ttf.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: 'Source Serif Pro';
+  font-stretch: normal;
+  font-style: italic;
+  font-weight: 400;
+
+  src: url('./fonts/SourceSerifPro-It.ttf.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-weight: 400;
+  font-style: normal;
+
+  src: url('./fonts/FiraMono-Regular.woff2') format('woff2');
+}
+
+body {
+  font-family: 'Source Serif Pro',
+    "Palatino Linotype", Palatino,
+    "Book Antiqua",
+    "Bitstream Charter",
+    Garamond, "Apple Garamond", "ITC Garamond Narrow",
+    "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L",
+    serif;
+
+  font-size: $body-font-size;
+  font-variant-numeric: oldstyle-nums;
+  hyphens: auto;
+  line-height: 1.35;
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: $body-width;
+
+  --foreground-color: #000;
+  --background-color: #fff;
+  --deemphasized-color: #555;
+  --line-color: #888;
+  --unvisited-link-color: #00e;
+  --visited-link-color: #551a8b;
+
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+}
+
+@media(prefers-color-scheme: dark) {
+  body {
+    --foreground-color: #fff;
+    --background-color: #000;
+    --deemphasized-color: #bbb;
+    --line-color: #666;
+    --unvisited-link-color: #2499ff;
+    --visited-link-color: #c274ec;
+  }
+}
+
+a, a:active { color: var(--unvisited-link-color) }
+a:visited { color: var(--visited-link-color) }
+
+nav, code {
+  font-family:
+    'Fira Mono',
+    Consolas,
+    "DejaVu Sans Mono",
+    "Andale Mono WT", "Andale Mono",
+    "Lucida Console", "Lucida Sans Typewriter",
+    "Bitstream Vera Sans Mono",
+    "Courier New", Courier,
+    monospace;
+}
+
+body > header > nav {
+  margin: 2em 0;
+
+  h1 {
+    display: inline-block;
+    font-size: $body-font-size;
+    margin: 0;
+
+    a, a:visited {
+      text-decoration: none;
+      color: var(--foreground-color);
+    }
+  }
+
+  ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      font-size: $body-font-size;
+
+      a, a:visited {
+        text-decoration: none;
+      }
+    }
+
+    li:after {
+      content: "{";
+      margin: 0 .5em;
+      font-weight: normal;
+    }
+  }
+}
+
+main {
+  header {
+    h1 {
+      margin-bottom: .1em;
+      font-size: 150%;
+    }
+
+    p {
+      font-size: $body-font-size * .8;
+      color: var(--deemphasized-color);
+      margin-top: 0;
+    }
+  }
+}
+
+h1 { font-size: 115%; }
+h2 { font-size: 100%; }
+h3 { font-size: 90%; }
+h1, h2, h3 {
+  font-weight: 650;
+  hyphens: none;
+  margin: $paragraph-spacing*2 0 $paragraph-spacing 0;
+}
+h4, h5, h6 { color: red; }
+
+p {
+  margin: 0 0 $paragraph-spacing 0;
+}
+
+blockquote {
+  border-left: 2px solid var(--line-color);
+  font-size: $body-font-size * .9;
+  line-height: 1.25;
+  margin: $paragraph-spacing 0;
+  padding: 1em;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+hr {
+  width: 85%;
+  margin: $paragraph-spacing * 2 auto;
+  border: 1px solid var(--line-color);
+}
+
+figure {
+  text-align: center;
+  margin: $paragraph-spacing*2 0;
+
+  img {
+    max-width: $body-width;
+  }
+
+  figcaption {
+    color: var(--deemphasized-color);
+  }
+}
+
+pre {
+  color: var(--color-aside-fg);
+  background-color: var(--color-aside-bg);
+  padding: 1em;
+  white-space: pre;
+  margin: 0 -5em;
+  overflow-x: scroll;
+}
+
+@media(max-width: $body-width + 10em) {
+  pre { margin: 0; }
+}
+
+code {
+  font-size: 18px;
+  font-variant-numeric: normal;
+  hyphens: none;
+}

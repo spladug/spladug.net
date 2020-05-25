@@ -1,3 +1,3 @@
 +++
-title = "spladug.net"
+title = "spladug"
 +++

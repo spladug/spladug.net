@@ -1,0 +1,51 @@
+<!doctype html>
+
+{%- set node = section | default(value=page) %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {% block title %}<title>{{ node.title }}&mdash;{{ config.title }}</title>{% endblock title %}
+
+  {%- block style %}
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path='style.css') }}">
+  {% endblock -%}
+
+  {%- block meta %}
+  <meta name="author" content="Neil Williams">
+  <meta name="referrer" content="origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- endblock meta %}
+</head>
+<body>
+  {%- block header %}
+  <header>
+    <nav>
+      <ol>
+        {%- for ancestor_path in node.ancestors -%}
+          {%- set ancestor = get_section(path=ancestor_path) -%}
+          {%- if loop.first -%}
+          <li><h1><a href="{{ ancestor.path }}">{{ ancestor.title | lower }}</a></h1></li>
+          {%- else -%}
+          <li><a href="/{{ ancestor.path }}">{{ ancestor.title | lower }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </nav>
+  </header>
+  {% endblock header -%}
+
+  {%- block main %}
+  <main>
+    <header>
+      <h1>{{ node.title }}</h1>
+
+      {%- block subtitles %}
+      {%- endblock %}
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+  </main>
+  {% endblock main %}
+</body>
+</html>

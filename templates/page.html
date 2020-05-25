@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block meta %}
+{{ super() }}
+{% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+{% endif %}
+{% endblock %}
+
+{% block subtitles %}
+{%- if page.date %}
+      <p class="date">
+        Posted on <time datetime="{{ page.date }}">{{ page.date | date(format="%e %b %Y") }}</time>
+        {%- if page.updated and page.updated != page.date %}
+        and last updated <time datetime="{{ page.updated }}">{{ page.updated | date(format="%e %b %Y") }}</time>
+        {%- endif %}
+      </p>
+{% endif -%}
+{% endblock subtitles %}
+
+{% block content %}
+  {{ page.content | safe }}
+{% endblock content %}

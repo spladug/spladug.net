@@ -1,21 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <title>spladug.net</title>
-  <meta name="description" content="The personal website of Neil Williams, a programmer.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block style %}
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path='style.css') }}">
   <style>
-    html {
+    html, body, nav {
       height: 100%;
-      font-family: "dejavu sans mono", consolas, monaco, monospace;
     }
 
-    body {
+    nav {
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0;
-      height: 100%;
+    }
+
+    h1 {
+      font-size: 200%;
+      margin: 0;
     }
 
     h1:after {
@@ -23,7 +24,7 @@
       content: "{";
       font-size: 200%;
       vertical-align: middle;
-      font-weight: lighter;
+      font-weight: 100;
     }
 
     ul {
@@ -34,16 +35,26 @@
 
     a:link { text-decoration: none; }
     a:link:hover { text-decoration: underline; }
+
+    @media(max-width: 30em) {
+        nav { flex-direction: column; }
+        h1 { text-align: center; }
+        h1:after { writing-mode: vertical-lr; }
+    }
   </style>
-</head>
-<body>
-  <h1 id="name">spladug</h1>
-  <main>
+{% endblock style %}
+
+{% block title %}<title>{{ config.title }}</title>{% endblock %}
+
+{% block header %}{% endblock header %}
+
+{% block main %}
+  <nav>
+    <h1>spladug</h1>
     <ul>
       <li><a href="https://github.com/spladug">github</a></li>
       <li><a href="https://www.reddit.com/user/spladug">reddit</a></li>
       <li><a href="/A1986BFD48E8FD1E.asc">gpg key</a></li>
     </ul>
-  </main>
-</body>
-</html>
+  </nav>
+{% endblock main %}
