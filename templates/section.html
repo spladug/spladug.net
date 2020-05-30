@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<ol>
-{% for post in section.pages %}
-  <li>
-    <a href="{{ post.permalink }}">{{ post.title }}</a>
-    <br>
-    <time datetime="{{ post.date }}">{{ post.date | date(format="%e %b %Y") }}</time>
-  </li>
-{% endfor %}
-</ol>
+    <ol class="section-listing" reversed>
+    {%- for post in section.pages %}
+      <li>
+        <h1><a href="{{ post.permalink }}">{{ post.title }}</a></h1>
+        <p><time datetime="{{ post.date }}">{{ post.date | date(format="%e %b %Y") }}</time></p>
+      </li>
+    {%- endfor %}
+    </ol>
 {% endblock content %}

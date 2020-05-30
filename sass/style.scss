@@ -48,30 +48,30 @@ body {
   padding: 0 1em;
   max-width: $body-width;
 
-  --foreground-color: #000;
-  --background-color: #fff;
-  --deemphasized-color: #555;
-  --line-color: #888;
-  --unvisited-link-color: #00e;
-  --visited-link-color: #551a8b;
+  --color-foreground: #000;
+  --color-background: #fff;
+  --color-deemphasized: #555;
+  --color-line: #888;
+  --color-link-unvisited: #00e;
+  --color-link-visited: #551a8b;
 
-  color: var(--foreground-color);
-  background-color: var(--background-color);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
 }
 
 @media(prefers-color-scheme: dark) {
   body {
-    --foreground-color: #fff;
-    --background-color: #000;
-    --deemphasized-color: #bbb;
-    --line-color: #666;
-    --unvisited-link-color: #2499ff;
-    --visited-link-color: #c274ec;
+    --color-foreground: #fff;
+    --color-background: #000;
+    --color-deemphasized: #bbb;
+    --color-line: #666;
+    --color-link-unvisited: #2499ff;
+    --color-link-visited: #c274ec;
   }
 }
 
-a, a:active { color: var(--unvisited-link-color) }
-a:visited { color: var(--visited-link-color) }
+a, a:active { color: var(--color-link-unvisited) }
+a:visited { color: var(--color-link-visited) }
 
 nav, code {
   font-family:
@@ -95,7 +95,7 @@ body > header > nav {
 
     a, a:visited {
       text-decoration: none;
-      color: var(--foreground-color);
+      color: var(--color-foreground);
     }
   }
 
@@ -123,6 +123,8 @@ body > header > nav {
 
 main {
   header {
+    margin-bottom: $paragraph-spacing * 2;
+
     h1 {
       margin-bottom: .1em;
       font-size: 150%;
@@ -130,9 +132,28 @@ main {
 
     p {
       font-size: $body-font-size * .8;
-      color: var(--deemphasized-color);
+      color: var(--color-deemphasized);
       margin-top: 0;
     }
+  }
+}
+
+.section-listing {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    margin: 0 0 1em 0;
+  }
+
+  h1 {
+    font-size: $body-font-size;
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: $body-font-size * .8;
+    color: var(--color-deemphasized);
   }
 }
 
@@ -142,7 +163,7 @@ h3 { font-size: 90%; }
 h1, h2, h3 {
   font-weight: 650;
   hyphens: none;
-  margin: $paragraph-spacing*2 0 $paragraph-spacing 0;
+  margin: $paragraph-spacing*2.5 0 $paragraph-spacing 0;
 }
 h4, h5, h6 { color: red; }
 
@@ -151,7 +172,7 @@ p {
 }
 
 blockquote {
-  border-left: 2px solid var(--line-color);
+  border-left: 2px solid var(--color-line);
   font-size: $body-font-size * .9;
   line-height: 1.25;
   margin: $paragraph-spacing 0;
@@ -165,7 +186,7 @@ blockquote {
 hr {
   width: 85%;
   margin: $paragraph-spacing * 2 auto;
-  border: 1px solid var(--line-color);
+  border: 1px solid var(--color-line);
 }
 
 figure {
@@ -177,21 +198,21 @@ figure {
   }
 
   figcaption {
-    color: var(--deemphasized-color);
+    color: var(--color-deemphasized);
   }
 }
 
 pre {
-  color: var(--color-aside-fg);
-  background-color: var(--color-aside-bg);
   padding: 1em;
   white-space: pre;
-  margin: 0 -5em;
-  overflow-x: scroll;
+  margin: $paragraph-spacing*2 -5em;
 }
 
 @media(max-width: $body-width + 10em) {
-  pre { margin: 0; }
+  pre {
+    margin: 0;
+    overflow-x: scroll;
+  }
 }
 
 code {
