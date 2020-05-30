@@ -210,7 +210,8 @@ pre {
 
 @media(max-width: $body-width + 10em) {
   pre {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
     overflow-x: scroll;
   }
 }
