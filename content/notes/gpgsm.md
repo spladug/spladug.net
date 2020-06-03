@@ -1,5 +1,6 @@
 +++
 title = "Using GPG keys for a TLS CA"
+description = "How to run a personal certificate authority using GPG keys stored on a smartcard (yubikey)"
 date = 2020-05-24
 +++
 

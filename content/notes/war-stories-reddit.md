@@ -1,5 +1,6 @@
 +++
 title = "Some war stories from Reddit"
+description = "A talk on the architecture of reddit.com and accompanying stories of failure."
 date = 2017-11-20
 +++
 

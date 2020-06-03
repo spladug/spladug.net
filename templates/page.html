@@ -1,12 +1,5 @@
 {% extends "base.html" %}
 
-{% block meta %}
-{{ super() }}
-{% if page.description %}
-  <meta name="description" content="{{ page.description }}">
-{% endif %}
-{% endblock %}
-
 {% block subtitles %}
 {%- if page.date %}
       <p class="date">

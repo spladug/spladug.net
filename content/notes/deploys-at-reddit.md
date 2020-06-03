@@ -1,5 +1,6 @@
 +++
 title = "The Evolution of Code Deploys at Reddit"
+description = "A writeup on how deploys were managed at reddit.com."
 date = 2017-06-02
 +++
 

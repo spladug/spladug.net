@@ -14,6 +14,9 @@
   <meta name="author" content="Neil Williams">
   <meta name="referrer" content="origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- if node.description %}
+  <meta name="description" content="{{ node.description }}">
+  {%- endif %}
   {%- endblock meta %}
 </head>
 <body>
