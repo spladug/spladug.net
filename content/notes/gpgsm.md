@@ -15,7 +15,7 @@ much fiddling, I figured out how to make [`gpgsm`][gpgsm] do what I wanted.
 
 [gpgsm]: https://linux.die.net/man/1/gpgsm
 
-# Background
+## Background
 
 Included in the [GPG] suite is a command called `gpgsm` which works on X.509
 certificates, like those used in TLS. It is able to access the private keys in
@@ -45,7 +45,7 @@ source][gpgsm-source].
 [gpgsm-ua]: https://www.gnupg.org/documentation/manuals/gnupg/CSR-and-certificate-creation.html
 [gpgsm-source]: https://github.com/gpg/gnupg/blob/master/sm/certreqgen.c
 
-# Extensions
+## Extensions
 
 While `gpgsm` knows a lot about the X.509 format, it doesn't have first-class
 support for every kind of certificate extension we may need for our purposes.
@@ -83,7 +83,7 @@ which prints out the `2.5.29.19 c 30060101ff020100` we saw above.
 [`pyasn1`]: https://pypi.org/project/pyasn1/
 [`pyasn1_modules`]: https://pypi.org/project/pyasn1-modules/
 
-# Creating a CA certificate
+## Creating a CA certificate
 
 The first thing we need to do is generate our root CA certificate. This
 certificate is what we will install in the trust roots of browsers etc. to
@@ -180,7 +180,7 @@ Certificate:
 Since we don't need to export the private key for the CA to send it elsewhere
 (and _can't_ if it's on a smartcard) we're done here.
 
-# Making endpoint certificates
+## Making endpoint certificates
 
 For each endpoint certificate, we'll go through roughly the same flow except
 that we'll be generating a new private key each time and instead of
@@ -327,7 +327,7 @@ $ rm $GNUPGHOME/private-keys-v1.d/03AC0260D114811D59215DE7126D448E510C1186.key
 
 And we're done!
 
-# Other reading and prior art
+## Other reading and prior art
 
 The following, in addition to things linked above,  were both extremely useful
 to me in figuring out how all of this worked.

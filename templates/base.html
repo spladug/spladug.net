@@ -26,11 +26,7 @@
       <ol>
         {%- for ancestor_path in node.ancestors -%}
           {%- set ancestor = get_section(path=ancestor_path) -%}
-          {%- if loop.first -%}
-          <li><h1><a href="{{ ancestor.path }}">{{ ancestor.title | lower }}</a></h1></li>
-          {%- else -%}
-          <li><a href="/{{ ancestor.path }}">{{ ancestor.title | lower }}</a></li>
-          {%- endif -%}
+          <li><a href="/{{ ancestor.components | join(sep="/") }}">{{ ancestor.title | lower }}</a></li>
         {%- endfor -%}
       </ol>
     </nav>

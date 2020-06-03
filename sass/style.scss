@@ -58,35 +58,36 @@ nav, code {
 body > header > nav {
   margin: 2em 0;
 
-  h1 {
+  ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li {
     display: inline-block;
     font-size: $body-font-size;
+
+    a, a:visited {
+      text-decoration: none;
+    }
+  }
+
+  li:after {
+    content: "{";
+    margin: 0 .5em;
+    font-weight: normal;
+  }
+
+  li:first-child {
+    display: inline-block;
+    font-size: $body-font-size;
+    font-weight: bold;
     margin: 0;
 
     a, a:visited {
       text-decoration: none;
       color: var(--color-foreground);
-    }
-  }
-
-  ol {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-
-    li {
-      display: inline-block;
-      font-size: $body-font-size;
-
-      a, a:visited {
-        text-decoration: none;
-      }
-    }
-
-    li:after {
-      content: "{";
-      margin: 0 .5em;
-      font-weight: normal;
     }
   }
 }
@@ -98,6 +99,7 @@ main {
     h1 {
       margin-bottom: .1em;
       font-size: 150%;
+      color: var(--color-foreground);
     }
 
     p {
@@ -116,7 +118,7 @@ main {
     margin: 0 0 1em 0;
   }
 
-  h1 {
+  h2 {
     font-size: $body-font-size;
     margin-bottom: 0;
   }
@@ -127,15 +129,14 @@ main {
   }
 }
 
-h1 { font-size: 115%; }
-h2 { font-size: 100%; }
-h3 { font-size: 90%; }
+h2 { font-size: 115%; }
+h3 { font-size: 100%; }
 h1, h2, h3 {
   font-weight: 650;
   hyphens: none;
   margin: $paragraph-spacing*2.5 0 $paragraph-spacing 0;
 }
-h4, h5, h6 { color: red; }
+h1, h4, h5, h6 { color: red; }
 
 p {
   margin: 0 0 $paragraph-spacing 0;
